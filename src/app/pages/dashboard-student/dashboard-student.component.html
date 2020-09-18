@@ -1,3 +1,140 @@
-<p>
-  dashboard-student works!
-</p>
+<div>
+  <h4 class="mb-4 text-muted">Welcome {{ username }}</h4>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Marks</p>
+              <h4 class="card-text text-right">{{ markLength }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-atom"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Subject</p>
+              <h4 class="card-text text-right">{{ subjectLength }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-sort-numeric-up"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">coefficient</p>
+              <h4 class="card-text text-right">{{ coefficient }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-sort-numeric-up"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-success">
+                {{ (sumMarks / coefficient).toFixed(2) }} / 20
+              </p>
+              <h4 class="card-text text-right">9</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- list of marks -->
+  <div class="col-12 col-lg-6 mb-4 align-items-stretch">
+    <div class="card h-100 border-0 rounded-0">
+      <div class="card-title mb-1 p-3 d-flex">
+        <h6>List of Marks</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive-md">
+          <div class="table-responsive">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th style="width: 40%">note</th>
+                  <th style="width: 20%">subject</th>
+                  <th style="width: 20%">coefficient</th>
+                  <th class="actions" style="width: 5%"></th>
+                </tr>
+              </thead>
+              <tbody class="no-border-x">
+                <tr *ngFor="let mark of notesUser">
+                  <!-- <td>{{ mark.user.userName }}</td> -->
+                  <td class="number">{{ mark.note }}</td>
+                  <td class="number">{{ mark.subject.name }}</td>
+                  <td class="number">{{ mark.subject.coefficient }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- List of subjects -->
+  <div class="col-lg-6 mb-4 align-items-stretch">
+    <div class="card h-100 border-0 rounded-0">
+      <div class="card-title mb-1 p-3 d-flex">
+        <h6>Your Subjects</h6>
+        <a class="btn ml-auto p-0 text-lightning">
+          <i class="fas fa-ellipsis-h"></i>
+        </a>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive-md">
+          <div class="table-responsive">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th style="width: 40%">Subject name</th>
+                  <th class="number">coefficient</th>
+                  <th class="actions" style="width: 5%"></th>
+                </tr>
+              </thead>
+              <tbody class="no-border-x">
+                <tr *ngFor="let item of subjects">
+                  <!-- <td>{{ mark.user.userName }}</td> -->
+                  <td class="number">{{ item.name }}</td>
+                  <td class="number">{{ item.coefficient }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

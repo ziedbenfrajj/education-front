@@ -11,5 +11,7 @@
     </div>
     <div class="overlay" (click)="toggleSidebar()"></div>
   </main>
-  <app-dashboard-student *ngIf="isStudent()"></app-dashboard-student>
+  <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4">
+    <app-dashboard-student *ngIf="isStudent()"></app-dashboard-student>
+  </div>
 </div>
