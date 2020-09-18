@@ -43,8 +43,6 @@ export class DashboardStudentComponent implements OnInit {
     this.userName();
     this.onGetSubject();
     this.OnGetAllMarks();
-
-    console.log(this.username);
   }
   userName() {
     this.username = this._authService.username;
@@ -56,7 +54,6 @@ export class DashboardStudentComponent implements OnInit {
       (mark) => {
         this.marks = mark;
         // numbers of notes
-        this.markLength = mark.length;
 
         this.marks.forEach((element) => {
           if (element.user.userName == this.username) {
@@ -65,6 +62,15 @@ export class DashboardStudentComponent implements OnInit {
           }
         });
         this.markLength = this.notesUser.length;
+        // your overall average is ready
+        if (this.markLength == this.subjectLength) {
+          // show the notification
+          document.getElementById("notif-div").style.display = "block";
+          var element = document.getElementById("notif");
+          element.classList.add("notifications");
+        } else {
+          console.log("no");
+        }
       },
       (error) => {
         console.log(error);

@@ -63,12 +63,7 @@
         <div class="card-body myChart">
           <svg>
             <circle cx="70" cy="70" r="70"></circle>
-            <circle
-              style="stroke-dashoffset: calc(440 - (440 * 85) / 100)"
-              cx="70"
-              cy="70"
-              r="70"
-            ></circle>
+            <circle id="myChart" cx="70" cy="70" r="70"></circle>
           </svg>
           <div class="number">
             <h2>{{ percent }}<span>%</span></h2>
@@ -79,14 +74,14 @@
             <div class="flex-fill text-center">
               <span
                 class="d-inline-block rounded-circle mr-2"
-                style="background: #5b6582"
+                style="background: #03a9f4"
               ></span
               ><small>greater then 10</small>
             </div>
             <div class="flex-fill text-center">
               <span
                 class="d-inline-block rounded-circle mr-2"
-                style="background: #98a4c7"
+                style="background: #f3f3f3"
               ></span
               ><small> less then 10 </small>
             </div>
@@ -118,10 +113,10 @@
                 </thead>
                 <tbody class="no-border-x">
                   <tr>
-                    <!-- <td>{{ mark.user.userName }}</td> -->
-                    <td class="number">{{ mark.note }}</td>
-                    <!-- <td>{{ mark.subject.name }}</td> -->
-                    <!-- <td class="text-success">{{ mark.subject.coefficient }}</td> -->
+                    <td>{{ mark.user.userName }}</td>
+                    <td class="number text-success">{{ mark.note }}</td>
+                    <td>{{ mark.subject.name }}</td>
+                    <td>{{ mark.subject.coefficient }}</td>
                     <td class="actions">
                       <a class="icon" href="#"
                         ><i class="mdi mdi-plus-circle-o"></i

@@ -61,6 +61,8 @@ export class DashboardComponent implements OnInit {
       }
     });
     this.percent = Math.floor((this.greater / this.markLength) * 100);
+    var x = 440 - (440 * this.percent) / 100;
+    document.getElementById("myChart").style.strokeDashoffset = x.toString();
   }
   //get all departements
   OnGetAllMarks() {

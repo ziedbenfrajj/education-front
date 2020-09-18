@@ -19,12 +19,18 @@
     [collapse]="isCollapsed"
   >
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li
+        class="nav-item"
+        *ngIf="isStudent()"
+        (click)="openModal(template)"
+        id="notif-div"
+        style="display: none"
+      >
         <a class="btn nav-link">
           <i class="far fa-bell"></i>
           <span class="link-text">Alerts</span>
           <!-- toggle the notifications class to show or hide notifications -->
-          <span class="nav-alert notifications"></span>
+          <span id="notif" class="nav-alert"></span>
         </a>
       </li>
 
@@ -37,3 +43,21 @@
     </ul>
   </div>
 </nav>
+
+<!-- notification modal -->
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left text-success">
+      congratulations you passed all the exams, check your average
+    </h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</ng-template>
+<!-- end notification modal -->
