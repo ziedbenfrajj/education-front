@@ -1,7 +1,7 @@
 <div class="my-row container">
-  <!-- <div>
-    <img src="assets/img/altran.png" class="img-responsive logo" />
-  </div> -->
+  <div>
+    <img src="assets/logo.png" class="img-responsive logo" />
+  </div>
   <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
     <div class="container">
       <div class="form-group">
@@ -26,7 +26,11 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="form-control btn btn-primary btn-sm">
+        <button
+          style="background-color: #f93"
+          type="submit"
+          class="form-control text-white btn-sm"
+        >
           Login <i class="fa fa-sign-in" aria-hidden="true"></i>
         </button>
       </div>
