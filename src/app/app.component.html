@@ -1,0 +1,15 @@
+<app-login *ngIf="!isAutheticated()"></app-login>
+
+<div class="wrapper default-theme" *ngIf="isAutheticated()">
+  <app-navbar></app-navbar>
+  <main *ngIf="isTeacher()">
+    <app-sidebar></app-sidebar>
+    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4">
+      <router-outlet></router-outlet>
+      <hr />
+      <app-footer></app-footer>
+    </div>
+    <div class="overlay" (click)="toggleSidebar()"></div>
+  </main>
+  <app-dashboard-student *ngIf="isStudent()"></app-dashboard-student>
+</div>

@@ -1,0 +1,141 @@
+<button
+  type="button"
+  class="btn btn-info btn-sm mb-2"
+  (click)="newSubject(template)"
+>
+  <i class="fas fa-user-plus"></i> New
+</button>
+<div class="row">
+  <!-- left -->
+  <div class="col-md-7">
+    <div>
+      <table class="table table-hover table-bordered col-md-12 text-center">
+        <thead class="bg-dark text-white">
+          <th>Subject name</th>
+          <th>coefficient</th>
+          <th>operations</th>
+        </thead>
+        <tbody class="bg-white text-dark">
+          <tr *ngFor="let subject of subjects">
+            <td>{{ subject.name }}</td>
+            <td>{{ subject.coefficient }}</td>
+            <td>
+              <button
+                class="btn btn-success mr-2 btn-sm"
+                (click)="updateSubject(subject, template)"
+              >
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button
+                class="btn btn-danger mr-2 btn-sm"
+                (click)="deleteReq(confirmDelete)"
+              >
+                <i class="fas fa-trash-alt"></i> Delete
+              </button>
+              <!-- confirmDelete modal -->
+              <ng-template #confirmDelete>
+                <div class="modal-body text-center">
+                  <p>Do you want to confirm?</p>
+                  <button
+                    type="button"
+                    class="btn btn-success text-white mr-2"
+                    (click)="confirm(subject)"
+                  >
+                    <i class="fas fa-check"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger text-white"
+                    (click)="decline()"
+                  >
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </ng-template>
+              <!-- end confirmDelete -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- right -->
+  <div class="col-md-5">
+    <div class="card" style="max-width: 18rem">
+      <div class="card-header text-white bg-primary">Total informations</div>
+      <div class="card-body">
+        <h5 class="card-title">Numbers of subject : {{ numbersSubjects }}</h5>
+        <h5 class="card-title">coefficient : {{ coefficient }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- add or update subject -->
+<ng-template #template class="col-md-8">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ operation }}</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="processForm()" #userForm="ngForm">
+      <!-- subject name -->
+      <div class="form-group">
+        <label
+          for="description"
+          class="col-form-label col-form-label-sm customLabel"
+        >
+          subject name :
+        </label>
+        <input
+          type="text"
+          name="name"
+          placeholder="subject name"
+          class="form-control"
+          [(ngModel)]="subjectObj.name"
+          required
+          minlength="2"
+          maxlength="25"
+        />
+      </div>
+
+      <!-- coefficient -->
+      <div class="form-group">
+        <label
+          for="coefficient"
+          class="col-form-label col-form-label-sm customLabel"
+        >
+          coefficient :
+        </label>
+        <input
+          type="text"
+          name="coefficient"
+          placeholder="coefficient"
+          class="form-control"
+          [(ngModel)]="subjectObj.coefficient"
+          required
+          minlength="1"
+          maxlength="25"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn-sm btn btn-primary"
+        [disabled]="userForm.form.invalid"
+      >
+        Save
+      </button>
+    </form>
+    <button class="fix-cancel btn-sm btn btn-danger" (click)="modalRef.hide()">
+      close
+    </button>
+  </div>
+</ng-template>

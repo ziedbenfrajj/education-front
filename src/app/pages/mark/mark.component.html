@@ -1,0 +1,155 @@
+<div>
+  <button
+    type="button"
+    class="btn btn-info btn-sm mb-2"
+    (click)="newUser(template)"
+  >
+    <i class="fas fa-user-plus"></i> New
+  </button>
+
+  <table class="table table-hover table-bordered col-md-12 text-center">
+    <thead class="bg-dark text-white">
+      <th>note</th>
+      <th>user</th>
+      <th>email</th>
+      <th>subject</th>
+      <th>coefficient</th>
+
+      <th>operations</th>
+    </thead>
+    <tbody class="bg-white text-dark">
+      <tr *ngFor="let mark of marks">
+        <td>{{ mark.note }}</td>
+        <td>{{ mark.user.userName }}</td>
+        <td>{{ mark.user.email }}</td>
+        <td>{{ mark.subject.name }}</td>
+        <td>{{ mark.subject.coefficient }}</td>
+
+        <td>
+          <button
+            class="btn btn-success mr-2 btn-sm"
+            (click)="updateStudent(mark, template)"
+          >
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button
+            class="btn btn-danger mr-2 btn-sm"
+            (click)="deleteReq(confirmDelete)"
+          >
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+          <!-- confirmDelete modal -->
+          <ng-template #confirmDelete>
+            <div class="modal-body text-center">
+              <p>Do you want to confirm?</p>
+              <button
+                type="button"
+                class="btn btn-success text-white mr-2"
+                (click)="confirm(mark)"
+              >
+                <i class="fas fa-check"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger text-white"
+                (click)="decline()"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </ng-template>
+          <!-- end confirmDelete -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add and update user -->
+<!-- modal -->
+<ng-template #template class="col-md-8">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ operation }}</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="processForm()" #userForm="ngForm">
+      <!-- first name -->
+      <div class="form-group">
+        <label for="mark" class="col-form-label col-form-label-sm customLabel">
+          Mark :
+        </label>
+        <input
+          type="text"
+          name="mark"
+          placeholder="mark"
+          class="form-control"
+          [(ngModel)]="markObj.note"
+          #firstName="ngModel"
+          minlength="1"
+          required
+        />
+      </div>
+
+      <!-- user -->
+      <div class="form-group">
+        <label for="user" class="col-form-label col-form-label-sm customLabel">
+          user :
+        </label>
+        <select
+          name="user"
+          id="user"
+          class="form-control"
+          [(ngModel)]="markObj.user"
+          required
+        >
+          <option *ngFor="let user of users" [ngValue]="user">
+            {{ user.userName }}
+          </option>
+        </select>
+      </div>
+
+      <!-- user -->
+      <div class="form-group">
+        <label
+          for="subject"
+          class="col-form-label col-form-label-sm customLabel"
+        >
+          subject :
+        </label>
+        <select
+          name="subject"
+          id="subject"
+          class="form-control"
+          [(ngModel)]="markObj.subject"
+          required
+        >
+          <option *ngFor="let subject of subjects" [ngValue]="subject">
+            {{ subject.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- <div class="form-group">
+              <input type="submit" class='btn-sm btn btn-primary' value="Save" />
+          </div> -->
+      <button
+        type="submit"
+        class="btn-sm btn btn-primary"
+        [disabled]="userForm.form.invalid"
+      >
+        Save
+      </button>
+    </form>
+    <button class="fix-cancel btn-sm btn btn-danger" (click)="modalRef.hide()">
+      close
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,36 @@
+<aside class="sidebar shadow-sm">
+  <nav class="sidebar-menu pt-3 pb-3">
+    <ul class="menu-items">
+      <li *ngIf="isTeacher()">
+        <a href="#" routerLink="/dashboard" routerLinkActive="active">
+          <i class="fa fa-tv"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li *ngIf="isTeacher()">
+        <a href="#" routerLink="/student" routerLinkActive="active">
+          <i class="fas fa-user-graduate"></i>
+          <span>Student</span>
+        </a>
+      </li>
+      <li *ngIf="isTeacher()">
+        <a href="#" routerLink="/subject" routerLinkActive="active">
+          <i class="fas fa-calculator"></i>
+          <span>Subject</span>
+        </a>
+      </li>
+      <li *ngIf="isTeacher()">
+        <a href="#" routerLink="/mark" routerLinkActive="active">
+          <i class="fas fa-sort-numeric-up"></i>
+          <span>Marks</span>
+        </a>
+      </li>
+      <li *ngIf="isStudent()">
+        <a href="#" routerLink="/dashboardStudent" routerLinkActive="active">
+          <i class="fa fa-tv"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

@@ -1,0 +1,139 @@
+<div>
+  <h4 class="mb-4 text-muted">Dashboard</h4>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Users</p>
+              <h4 class="card-text text-right">{{ userLength }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-atom"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Subject</p>
+              <h4 class="card-text text-right">{{ subjectLength }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-sort-numeric-up"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Marks</p>
+              <h4 class="card-text text-right">{{ markLength }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-xl-4 mb-4 align-items-stretch">
+      <div class="card h-100 border-0 rounded-0">
+        <div class="card-title mb-1 p-3 d-flex">
+          <h6>Grade percentage</h6>
+          <a class="btn ml-auto p-0 text-lightning">
+            <i class="fas fa-ellipsis-h"></i>
+          </a>
+        </div>
+        <div class="card-body myChart">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle
+              style="stroke-dashoffset: calc(440 - (440 * 85) / 100)"
+              cx="70"
+              cy="70"
+              r="70"
+            ></circle>
+          </svg>
+          <div class="number">
+            <h2>{{ percent }}<span>%</span></h2>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="legend d-flex just">
+            <div class="flex-fill text-center">
+              <span
+                class="d-inline-block rounded-circle mr-2"
+                style="background: #5b6582"
+              ></span
+              ><small>greater then 10</small>
+            </div>
+            <div class="flex-fill text-center">
+              <span
+                class="d-inline-block rounded-circle mr-2"
+                style="background: #98a4c7"
+              ></span
+              ><small> less then 10 </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-8 mb-4 align-items-stretch">
+      <div class="card h-100 border-0 rounded-0">
+        <div class="card-title mb-1 p-3 d-flex">
+          <h6>The highest marks</h6>
+          <a class="btn ml-auto p-0 text-lightning">
+            <i class="fas fa-ellipsis-h"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width: 40%">user name</th>
+                    <th class="number">note</th>
+                    <th style="width: 20%">subject</th>
+                    <th style="width: 20%">coefficient</th>
+                    <th class="actions" style="width: 5%"></th>
+                  </tr>
+                </thead>
+                <tbody class="no-border-x">
+                  <tr>
+                    <!-- <td>{{ mark.user.userName }}</td> -->
+                    <td class="number">{{ mark.note }}</td>
+                    <!-- <td>{{ mark.subject.name }}</td> -->
+                    <!-- <td class="text-success">{{ mark.subject.coefficient }}</td> -->
+                    <td class="actions">
+                      <a class="icon" href="#"
+                        ><i class="mdi mdi-plus-circle-o"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
