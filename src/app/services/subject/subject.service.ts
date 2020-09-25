@@ -27,27 +27,27 @@ export class SubjectService {
     return Observable.throw(error || "server Error");
   }
 
-  // get all Users
+  // get all subjects
   getSubjects() {
     return this._http
       .get(this.baseUrl, this.options)
       .map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
-  // get User
+  // get subject
   getSubject(id: Number) {
     return this._http
       .get(this.baseUrl + "/" + id, this.options)
       .map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
-  // delete User
+  // delete subject
   deleteSubject(id: Number) {
     return this._http
       .delete(this.baseUrl + "/" + id, this.options)
       .catch(this.errorHandler);
   }
-  // create User
+  // create subject
   createSubject(subject: Subject) {
     console.log(subject);
     return this._http
@@ -55,7 +55,7 @@ export class SubjectService {
       .map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
-  // update user
+  // update subject
   updateSubject(subject: Subject) {
     console.log(subject);
     return this._http

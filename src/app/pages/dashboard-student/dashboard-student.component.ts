@@ -48,7 +48,7 @@ export class DashboardStudentComponent implements OnInit {
     this.username = this._authService.username;
     return this._authService.username;
   }
-  //get all departements
+  //get all marks
   OnGetAllMarks() {
     this._markService.getMarks().subscribe(
       (mark) => {

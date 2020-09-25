@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: "student", component: StudentComponent },
   { path: "subject", component: SubjectComponent },
   { path: "mark", component: MarkComponent },
-  // student
 ];
 
 @NgModule({

@@ -25,34 +25,34 @@ export class MarksService {
     return Observable.throw(error || "server Error");
   }
 
-  // get all Users
+  // get all marks
   getMarks() {
     return this._http
       .get(this.baseUrl, this.options)
       .map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
-  // get User
+  // get mark
   getmark(id: Number) {
     return this._http
       .get(this.baseUrl + "/" + id, this.options)
       .map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
-  // delete User
+  // delete mark
   deleteMark(id: Number) {
     return this._http
       .delete(this.baseUrl + "/" + id, this.options)
       .catch(this.errorHandler);
   }
-  // create User
+  // create mark
   createMark(mark: Marks) {
     return this._http
       .post(this.baseUrl, JSON.stringify(mark), this.options)
       .map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
-  // update user
+  // update mark
   updateMark(mark: Marks) {
     return this._http
       .put(this.baseUrl, JSON.stringify(mark), this.options)

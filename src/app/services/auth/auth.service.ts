@@ -40,15 +40,15 @@ export class AuthenticationService {
       this.role = objJWT.roles;
       console.log(this.role);
     } else {
-      console.log("ty a3mel login 9bal !!");
+      console.log("erreur !");
     }
   }
 
-  // verify if it's an admin or not
+  // verify if it's an Teacher or not
   isTeacher() {
     return this.role == "Teacher";
   }
-  // verify if it's an admin or not
+  // verify if it's an Student or not
   isStudent() {
     return this.role == "Student";
   }

@@ -26,8 +26,8 @@ export class RoleService {
 
   /**
    * we have 2 roles here :
-   *  #### ADMIN
-   *  #### USER
+   *  #### Teacher
+   *  #### Student
    */
 
   //errorHandler

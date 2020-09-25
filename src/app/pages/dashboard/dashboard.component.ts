@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
     var x = 440 - (440 * this.percent) / 100;
     document.getElementById("myChart").style.strokeDashoffset = x.toString();
   }
-  //get all departements
+  //get all marks
   OnGetAllMarks() {
     this._markService.getMarks().subscribe(
       (mark) => {
@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
-  //get all departements
+  //get all users
   OnGetAllUsers() {
     this._userService.getUsers().subscribe(
       (user) => {
